@@ -66,4 +66,4 @@
     $sona=str_word_count($massivitekst);
     print_r($sona);
     echo "<br>";
-    echo "Kolmas sõna - ".$sona[2];
+    echo "Kolmas sõna -".$sona[2];
