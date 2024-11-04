@@ -4,10 +4,10 @@
     $muutuja='PHP on skriptikeel';
     echo "<strong>";
     echo $muutuja;
-    echo "<strong>";
+    echo "</strong>";
     echo "<br>";
     //Tekstifunktsioonid
-    echo "<h2>Tekstifunktsioonid<h2>";
+    echo "<h2>Tekstifunktsioonid</h2>";
     echo "<br>";
     $tekst="Esmaspäev on 4.november";
     echo $tekst;
@@ -37,7 +37,7 @@
     echo "<br>";
     //eralda peale esimest sõna, alates "on"
     echo substr($tekst,strpos($tekst,$otsing));
-    echo "<h2>Kasutame veebis kasutavaid näidised<h2>";
+    echo "<h2>Kasutame veebis kasutavaid näidised</h2>";
     echo "<br>";
     //sõnade arv lauses
     echo "sõnade arv lauses - ".str_word_count($tekst);
@@ -48,7 +48,7 @@
     echo "<br>";
     echo trim($tekst2, "P, t..t, v");
     echo "<br>";
-    $tekst2 = "     Põhitoetus võetakse ära 11.11 kui võlgnevused ei ope parandtus";
+    $tekst3 = "     Põhitoetus võetakse ära 11.11 kui võlgnevused ei ope parandtus";
     echo trim($tekst2, "P, a, ,k..n, w");
     echo "<br>";
     //$tekst3 = ' 	A woman should soften but not weaken a man   ';
@@ -63,7 +63,7 @@
     echo "1.täht - ".$massivitekst[0];
     echo "<br>";
     //kolmas sõna
-    $sona=str_word_count($massivitekst);
+    $sona=str_word_count($massivitekst, 1);
     print_r($sona);
     echo "<br>";
-    echo "Kolmas sõna -".$sona[2];
+    echo "Kolmas sõna - ".$sona[2];
