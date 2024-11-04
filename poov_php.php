@@ -45,6 +45,25 @@
     //teksti kärpimine
     $tekst2 = "     Põhitoetus võetakse ära 11.11 kui võlgnevused ei ope parandtus";
     echo ltrim($tekst2);
-    echo trim($tekst2, "P, t..k");
+    echo "<br>";
+    echo trim($tekst2, "P, t..t, v");
+    echo "<br>";
+    $tekst2 = "     Põhitoetus võetakse ära 11.11 kui võlgnevused ei ope parandtus";
+    echo trim($tekst2, "P, a, ,k..n, w");
+    echo "<br>";
+    //$tekst3 = ' 	A woman should soften but not weaken a man   ';
+    //echo trim($tekst2, "A, a, ,k..n, w");
 
     //tekstt kui massiiv
+    $massivitekst="Taiendav info opilase kohta";
+    echo "<br>";
+    //massiiv algab nullist
+    echo $massivitekst;
+    echo "<br>";
+    echo "1.täht - ".$massivitekst[0];
+    echo "<br>";
+    //kolmas sõna
+    $sona=str_word_count($massivitekst);
+    print_r($sona);
+    echo "<br>";
+    echo "Kolmas sõna - ".$sona[2];
