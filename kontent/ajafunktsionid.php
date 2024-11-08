@@ -20,12 +20,12 @@ echo "<br>";
 echo "i - minutid 0-59";
 echo "</div>";
 ?>
+<h2>Väljasta vastavalt hooajale pilt
+    (kevad/suvi/sügis/talv)</h2>
 <div id="hooaeg">
-    <h2>Väljasta vastavalt hooajale pilt
-        (kevad/suvi/sügis/talv)</h2>
     <?php
     $today=new DateTime();
-    echo "Täna on".$today->format('23-8-2024')."<br>";
+    echo "Täna on".$today->format('d-m-Y')."<br>";
     //hooaja punktid - сезон
     $spring=new DateTime('March 20');
     $summer=new DateTime('June 21');
@@ -53,5 +53,58 @@ echo "</div>";
 
     }
     ?>
-    <img src="<?=$pildi_aadress?>" alt='hooaja pilt'>
+    <img src="<?=$pildi_aadress?>" alt='hooaja pilt' width="100px">
+</div>
+<h2>Mitu päeva on koolivaheajani 23.12.2024</h2>
+<div id="koolivaheag">
+    <?php
+    $kdate = date_create_from_format('d.m.Y', '20.12.2024');
+    $date = date_create();
+    $diff = date_diff($kdate, $date);
+    echo "jääb " . $diff->format("%a ") . "päeva";
+    echo "<br>";
+    echo "jääb " . $diff->days . " päeva";
+    ?>
+</div>
+<h2>Mitu päeva on minu sünnipäevani 01.04.2025</h2>
+<div id="minu_sünnipäev">
+    <?php
+    $kdate = date_create_from_format('d.m.Y', '01.04.2025');
+    $date = date_create();
+    $diff = date_diff($kdate, $date);
+    echo "jääb " . $diff->format("%a ") . "päeva";
+    echo "<br>";
+    echo "jääb " . $diff->days . " päeva";
+    ?>
+</div>
+<h2>Kasutaja vanuse leidmine</h2>
+<div id="vanus">
+    <form method="post" action="">
+        Sisesta oma sünnikuupäev
+        <input type="date" name="synd" placeholder="dd.mm.YYYY">
+        <input type="submit" value="OK">
+    </form>
+    <?php
+    if(isset($_REQUEST["synd"])){
+        if (empty($_REQUEST["synd"])){
+            echo "sisesta oma Sünnipäeva kuupäev";
+        }
+        else{
+            $sdate = date_create($_REQUEST["synd"]);
+            $date = date_create();
+            $interval = date_diff($sdate, $date);
+            echo "Sa oled " . $interval->format("%y ") . "aastat vana";
+        }
+    }
+    ?>
+</div>
+<h2>Massivi abil näidata kuu tänases kuupäevas.</h2>
+<div id="täna_kuupäev">
+    <?php
+    $kuud=array(1=>'jaanuar', 'veebruar', 'märts', 'aprill', 'mai', 'juuni', 'juuli', 'august', 'september', 'oktoober', 'november', 'detsember');
+    $paev=date('d');
+    $year=date('Y');
+    $kuu=$kuud[date('n')];
+    echo "täna on " .$paev.' '.$kuu.' '.$year;
+    ?>
 </div>
