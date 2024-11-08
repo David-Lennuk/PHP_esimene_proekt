@@ -39,3 +39,8 @@ div#kodu{
     border: solid 1pt gray;
 
 }
+div#kuupaev {
+    width: 20%;
+    padding: 2%;
+    border: solid 1pt gray;
+}
